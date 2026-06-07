@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="icon" href="img/shopping-bag-icon.png" type="image/png">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FV Fitwear | Oficial</title>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- MAIN JS -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <p>🚚 FRETE GRÁTIS PARA TODO O BRASIL ACIMA DE R$300</p>
+    </div>
+
+    <!-- HEADER -->
+    <header class="main-header">
+
+        <div class="container">
+
+            <!-- LOGO -->
+            <a href="#" class="logo">
+                <img src="img/lg.png" alt="FV Fitwear Logo">
+            </a>
+
+            <!-- NAVIGATION -->
+            <nav class="nav-menu">
+                <ul>
+
+                    <li>
+                        <a href="#" class="category-trigger" data-cat="feminino">
+                            FEMININO
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="category-trigger" data-cat="masculino">
+                            MASCULINO
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="category-trigger" data-cat="lançamentos">
+                            LANÇAMENTOS
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="category-trigger" data-cat="sale">
+                            SALE
+                        </a>
+                    </li>
+
+                    
+
+                </ul>
+            </nav>
+
+            <!-- HEADER ICONS -->
+            <div class="header-icons">
+
+                <!-- SEARCH -->
+                <div class="search-box">
+
+                    <i class="fas fa-search search-toggle"></i>
+
+                    <div class="search-dropdown">
+
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Buscar produtos..."
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- CART -->
+                <div class="cart-icon">
+
+                    <i class="fas fa-shopping-bag"></i>
+
+                    <span>0</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-container">
+
+        <img
+            src="img/Banner.png"
+            alt="Banner FV Fitwear"
+            class="hero-bg"
+        >
+
+        <div class="hero-overlay">
+
+            <div class="hero-text-box">
+
+                <p class="subtitle">
+                    CONFORTO. ESTILO.
+                </p>
+
+                <h1 class="title">
+                    PERFORMANCE<br>
+                    QUE TE MOVE
+                </h1>
+
+                <div class="divider"></div>
+
+                <p class="description">
+                    Peças desenvolvidas para acompanhar<br>
+                    sua melhor versão, dentro e fora dos treinos.
+                </p>
+
+                <a href="#vitrine-produtos" class="btn-buy">
+                    COMPRAR AGORA
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits-bar">
+
+        <div class="benefit-item">
+            <i class="fas fa-truck"></i>
+
+            <span>
+                <strong>FRETE GRÁTIS</strong><br>
+                acima de R$300
+            </span>
+        </div>
+
+        <div class="benefit-item">
+            <i class="fas fa-sync-alt"></i>
+
+            <span>
+                <strong>TROCA FÁCIL</strong><br>
+                até 30 dias
+            </span>
+        </div>
+
+        <div class="benefit-item">
+            <i class="fas fa-shield-alt"></i>
+
+            <span>
+                <strong>COMPRA SEGURA</strong><br>
+                seus dados protegidos
+            </span>
+        </div>
+
+        <div class="benefit-item">
+            <i class="far fa-credit-card"></i>
+
+            <span>
+                <strong>ATÉ 6X SEM JUROS</strong><br>
+                no cartão de crédito
+            </span>
+        </div>
+
+    </section>
+
+    <!-- CATEGORIES -->
+    <section id="categorias" class="section-container">
+
+        <h2 class="main-title">
+            CATEGORIAS
+        </h2>
+
+        <div class="categories-grid">
+
+            <div class="category-card">
+
+                <img src="img/M_3.jpg" alt="Feminino">
+
+                <div class="category-overlay">
+
+                    <span>FEMININO</span>
+
+                    <button
+                        class="category-trigger"
+                        data-cat="feminino"
+                    >
+                        VER MAIS
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="category-card">
+
+                <img src="img/M_4.png" alt="Masculino">
+
+                <div class="category-overlay">
+
+                    <span>MASCULINO</span>
+
+                    <button
+                        class="category-trigger"
+                        data-cat="masculino"
+                    >
+                        VER MAIS
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="category-card">
+
+                <img src="img/M_2.jpg" alt="Lançamentos">
+
+                <div class="category-overlay">
+
+                    <span>LANÇAMENTOS</span>
+
+                    <button
+                        class="category-trigger"
+                        data-cat="lançamentos"
+                    >
+                        VER MAIS
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="category-card">
+
+                <img src="img/M_1.jpg" alt="Sale">
+
+                <div class="category-overlay">
+
+                    <span>SALE</span>
+
+                    <button
+                        class="category-trigger"
+                        data-cat="sale"
+                    >
+                        VER MAIS
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="vitrine-produtos" class="section-container">
+
+        <h2 id="titulo-categoria" class="main-title">
+            DESTAQUES
+        </h2>
+
+        <!-- PRODUCTS RENDER AREA -->
+        <div class="products-grid">
+        </div>
+
+        <!-- SHOW ALL PRODUCTS -->
+        <div class="center-btn">
+
+            <a href="javascript:void(0)"
+               id="btn-ver-todos"
+               class="btn-outline"
+                 onclick="showAllProducts()">
+                VER TODOS OS PRODUTOS
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- CART SIDEBAR -->
+    <aside class="cart-sidebar">
+
+        <div class="cart-header">
+
+            <h2>SEU CARRINHO</h2>
+
+            <button class="close-cart">
+                &times;
+            </button>
+
+        </div>
+
+        <!-- CART ITEMS -->
+        <div class="cart-items"></div>
+
+        <!-- CHECKOUT FORM -->
+        <div class="cart-checkout-form">
+            <h3>DADOS PARA ENTREGA</h3>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <input type="text" id="cart-address" placeholder="Rua, Bairro..." style="flex: 2; margin-bottom: 0;">
+                <input type="text" id="cart-number" placeholder="Número" style="flex: 1; margin-bottom: 0;">
+            </div>
+
+            <h3>FORMA DE PAGAMENTO</h3>
+            <select id="cart-payment">
+                <option value="Pix">Pix (5% de desconto)</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Cartão de Crédito">Cartão de Crédito</option>
+                <option value="Cartão de Débito">Cartão de Débito</option>
+            </select>
+        </div>
+
+        <!-- CART FOOTER -->
+        <div class="cart-footer">
+
+            <div id="cart-total-display"></div>
+
+            <button class="finish-order">
+                ENVIAR PEDIDO VIA WHATSAPP
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- CART OVERLAY -->
+    <div class="cart-overlay"></div>
+
+    <!-- FOOTER -->
+    <footer class="footer-container">
+
+        <div class="footer-content">
+
+            <!-- BRAND -->
+            <div class="footer-col brand">
+
+                <img
+                    src="img/logo-2.jpg"
+                    alt="FV Logo"
+                    class="footer-logo"
+                >
+
+                <p>
+                    Roupas que unem estilo, conforto e performance
+                    para todos os momentos.
+                </p>
+
+                <div class="social-icons">
+
+                    <i class="fab fa-instagram" onclick="window.open('https://www.instagram.com/fv_fitwear?igsh=MWZpMnU0bDhzZG04OQ==', '_blank')" style="cursor: pointer;"></i>
+                    <i class="fab fa-facebook-f" onclick="window.open('https://www.facebook.com/share/18FH3ty8dZ/','_blank')" style="cursor: pointer;"></i>
+            <!--    <i class="fab fa-tiktok"></i> 
+                    <i class="fab fa-youtube"></i> -->
+
+                </div>
+
+            </div>
+
+            <!-- INSTITUTIONAL -->
+            <div class="footer-col">
+
+                <h4>INSTITUCIONAL</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            Sobre nós
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://wa.me/5518998250535">
+                            Trocas e Devoluções
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- CONTACT -->
+            <div class="footer-col contact">
+
+                <h4>ATENDIMENTO</h4>
+
+                <p>
+    <i class="fas fa-phone-alt"
+       onclick="window.open('https://wa.me/5518998250535', '_blank')"
+       style="cursor: pointer;">
+    </i>
+    <a href="https://wa.me/5518998250535"
+       target="_blank"
+       style="color: inherit; text-decoration: none;">
+        55 (18) 99825-0535
+    </a>
+</p>
+
+                <p>
+    <i class="far fa-envelope"
+       onclick="window.location.href='mailto:contatofvfitwear19@gmail.com'"
+       style="cursor: pointer;">
+    </i>
+    <a href="mailto:contatofvfitwear19@gmail.com"
+       style="color: inherit; text-decoration: none;">
+        contatofvfitwear19@gmail.com
+    </a>
+</p>
+
+            </div>
+
+            <!-- PAYMENT -->
+            <div class="footer-col payment">
+
+                <h4>PAGAMENTO</h4>
+
+                <div class="payment-icons">
+
+                    <i class="fab fa-cc-visa"></i>
+
+                    <i class="fab fa-cc-mastercard"></i>
+
+                    <img
+                        src="https://img.icons8.com/color/48/000000/pix.png"
+                        alt="Pix"
+                        width="30"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2024 FITWEAR. TODOS OS DIREITOS RESERVADOS.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- MOBILE NAV -->
+    <nav class="mobile-nav">
+
+        <a href="#" class="mobile-nav-item">
+
+            <i class="fas fa-home"></i>
+
+            INÍCIO
+
+        </a>
+
+        <a href="#categorias" class="mobile-nav-item">
+
+            <i class="fas fa-th-large"></i>
+
+            CATEGORIAS
+
+        </a>
+
+        <button
+            class="mobile-nav-item cart-icon"
+            type="button"
+        >
+
+            <i class="fas fa-shopping-bag"></i>
+
+            CARRINHO
+
+        </button>
+
+    </nav>
+
+    <!-- INLINE FUNCTIONS -->
+    <script>
+
+        // ==========================================
+        // SHOW ALL PRODUCTS
+        // ==========================================
+
+        function showAllProducts() {
+
+            document.getElementById('titulo-categoria').innerText =
+                "TODOS OS PRODUTOS";
+
+            const products =
+                document.querySelectorAll('.product-item');
+
+            products.forEach(product => {
+                product.style.display = 'block';
+            });
+
+            document
+                .getElementById('vitrine-produtos')
+                .scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
