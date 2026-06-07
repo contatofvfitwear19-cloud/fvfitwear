@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<link rel="icon" href="img/shield-icon.png" type="image/png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Painel Administrativo | FV Fitwear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-admin">FV <span>FITWEAR</span></div>
+        <div class="sidebar-links">
+            <a href="#" class="nav-link active" onclick="showSection('dashboard', this)">
+                <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('produtos', this)">
+                <i class="fas fa-boxes"></i> <span>Produtos</span>
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('pedidos', this)">
+                <i class="fas fa-shopping-bag"></i> <span>Pedidos</span>
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('clientes', this)">
+                <i class="fas fa-users"></i> <span>Clientes</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header-admin">
+            <div class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+            <h2 id="page-title">Visão Geral</h2>
+            <div class="user-info"><strong>Olá, Administradora</strong></div>
+        </header>
+
+        <!-- SEÇÃO: DASHBOARD -->
+        <section id="dashboard" class="admin-section active">
+            <div class="dashboard-tabs-menu" style="display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 12px;">
+                <button class="db-tab-btn active" onclick="switchDashboardTab('tab-vendas', this)" style="padding: 10px 20px; background: #d4af37; border: none; color: #000000; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.3s;">Métricas de Vendas</button>
+                <button class="db-tab-btn" onclick="switchDashboardTab('tab-categorias-produtos', this)" style="padding: 10px 20px; background: transparent; border: 1px solid #333; color: #000000; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.3s;">Categorias e Produtos</button>
+            </div>
+
+            <div id="tab-vendas" class="db-tab-content" style="display: block;">
+                <div class="stats-grid">
+                    <div class="stat-card"><h4>Vendas Hoje</h4><div class="value">R$ 0,00</div></div>
+                    <div class="stat-card"><h4>Pedidos</h4><div class="value">0</div></div>
+                    <div class="stat-card"><h4>Visitantes</h4><div class="value">1.102</div></div>
+                </div>
+                <div class="data-table-container" style="margin-top: 20px;">
+                    <div class="table-header">
+                        <h3>Pedidos Recentes (Resumo Dashboard)</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Endereço</th>
+                                    <th>Total</th>
+                                    <th>Pagamento</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-orders-tbody">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="charts-section" style="margin-top: 25px;">
+                    <div class="chart-card" style="width: 100%;"><h3>Desempenho de Faturamento</h3><div class="chart-wrapper"><canvas id="mainSalesChart"></canvas></div></div>
+                </div>
+            </div>
+
+            <div id="tab-categorias-produtos" class="db-tab-content" style="display: none;">
+                <div class="charts-section">
+                    <div class="chart-card" style="width: 100%;"><h3>Proporção do Estoque por Categoria</h3><div class="chart-wrapper"><canvas id="categoryChart"></canvas></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: PRODUTOS -->
+        <section id="produtos" class="admin-section">
+            <div class="data-table-container">
+                <div class="table-header">
+                    <h3>Gerenciar Estoque</h3>
+                    <button class="btn-add" onclick="openProductModal()">+ NOVO PRODUTO</button>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr><th>IMG</th><th>Nome</th><th>Preço</th><th>Estoque</th><th>Ações</th></tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS preenche dinamicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO INDEPENDENTE: PEDIDOS (CORRIGIDO PARA FORA DE PRODUTOS) -->
+        <section id="pedidos" class="admin-section">
+            <div class="data-table-container">
+                <div class="table-header">
+                    <h3>Controle de Pedidos Recentes (WhatsApp)</h3>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>ID Pedido</th>
+                                <th>Endereço de Entrega</th>
+                                <th>Itens</th>
+                                <th>Total</th>
+                                <th>Pagamento</th>
+                                <th>Status do Pedido</th>
+                            </tr>
+                        </thead>
+                        <tbody id="main-orders-tbody">
+                            <!-- JS preenche aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CLIENTES -->
+        <section id="clientes" class="admin-section">
+            <div class="data-table-container">
+                <h3>Base de Clientes</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr><th>Nome</th><th>E-mail</th><th>Total Comprado</th><th>Ações</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>João Silva</td><td>joao@email.com</td><td>R$ 450,00</td><td><i class="fas fa-eye"></i></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL -->
+    <div id="productModal" class="modal-admin-overlay">
+        <div class="modal-admin-content">
+            <div class="modal-admin-header">
+                <h3 id="modalTitle">Novo Produto</h3>
+                <span class="close-modal" onclick="closeProductModal()">&times;</span>
+            </div>
+            <form id="productForm">
+                <div class="form-group">
+                    <label>Nome do Produto</label>
+                    <input type="text" placeholder="Ex: Top Strong Greek">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preço (R$)</label>
+                        <input type="text" id="productPrice" placeholder="R$ 0,00">
+                    </div>
+                    <div class="form-group">
+                        <label>Estoque Inicial</label>
+                        <input type="number" placeholder="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Categoria da Peça</label>
+                    <select id="productCategory">
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="lançamentos">Lançamentos</option>
+                        <option value="sale">Sale (Promoção)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Paleta de Cores</label>
+                    <div class="color-picker-container">
+                        <input type="color" id="productColor" class="color-input">
+                        <input type="text" id="colorHex" placeholder="#hex">
+                        <button type="button" class="btn-action-small" onclick="addColorTag()">+</button>
+                    </div>
+                    <div id="selectedColors" class="color-tags-display"></div>
+                </div>
+                <div class="form-group">
+                    <label>Tamanhos Disponíveis</label>
+                    <div class="size-options">
+                        <label class="check-container">PP <input type="checkbox" value="PP"><span class="checkmark"></span></label>
+                        <label class="check-container">P <input type="checkbox" value="P"><span class="checkmark"></span></label>
+                        <label class="check-container">M <input type="checkbox" value="M"><span class="checkmark"></span></label>
+                        <label class="check-container">G <input type="checkbox" value="G"><span class="checkmark"></span></label>
+                        <label class="check-container">GG <input type="checkbox" value="GG"><span class="checkmark"></span></label>
+                    </div>
+                    <div class="extra-size-container">
+                        <label>Outros Tamanhos (G1, G2, Sob Medida...)</label>
+                        <input type="text" id="extraSizes" placeholder="Ex: G1, G2, G3" class="input-special">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Foto Principal (Upload)</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <button type="submit" class="btn-save">SALVAR NO SISTEMA</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
